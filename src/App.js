@@ -62,11 +62,12 @@ function App() {
       justifyContent="center"
       flexDir="column"
       alignItems="center"
-      maxW="container.lg"
+      w="min(450px, 100%)"
       color="#fff"
+      m="0 auto"
     >
-      <Image src={image} w="md" h="200px" my={8} />
-      <Flex w="md" justifyContent="space-between">
+      <Image src={image} h="200px" my={8} objectFit="cover" />
+      <Flex w="min(450px, 100%)" justifyContent="space-between">
         <FormControl id="cuisine" w="fit-content">
           <FormLabel>Choose Cuisine</FormLabel>
           <Select
@@ -85,9 +86,9 @@ function App() {
           </Select>
         </FormControl>
       </Flex>
-      <Wrap wrap="wrap" w="md" spacing={4} dir="column" mt="4">
+      <Wrap w="min(450px, 100%)" spacing={4} my="8">
         {menu.map((d, i) => (
-          <MenuItem item={d} key={i} />
+          <MenuItem item={d} key={i} justifyContent="center" />
         ))}
       </Wrap>
     </Flex>
@@ -98,7 +99,7 @@ const MenuItem = ({ item }) => {
   const cuisine = JSON.parse(item['Cuisine Style'].replaceAll("'", '"'));
   return (
     <Box
-      w="200px"
+      w={{ base: '80%', sm: '215px' }}
       display="flex"
       justifyContent="center"
       alignItems="center"
